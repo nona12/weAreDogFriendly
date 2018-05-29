@@ -1,7 +1,7 @@
 <h2 class="text-center">{{title}}</h2>
 <div *ngFor="let hotel of hotels;">
 
-  <div class="card mb-3" style="width: 20rem;">
+  <div class="card listCards">
     <img class="card-img-top img-fluid" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
       alt="Hotel image cap">
     <div class="card-body">
@@ -11,4 +11,7 @@
          <a (click)="deleteHotel(hotel._id)" class="btn btn-primary">Borrar</a>
     </div>
   </div>
+
+
+
 </div>
