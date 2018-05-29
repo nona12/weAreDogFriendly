@@ -1,36 +1,25 @@
 import { Injectable } from '@angular/core';
+import { Response } from '@angular/http'; 
+import { HttpClient } from '@angular/common/http'; 
+import { HttpHeaders } from '@angular/common/http';
+import { Hotel } from './models/Hotel'; 
+import { Observable } from 'rxjs/Observable'; 
+import { of } from 'rxjs/observable/of';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HotelService {
 
-  constructor() { }
+
+export class HotelService {
+  public url: String;
+
+  constructor(private _http: HttpClient) {
+    this.url = 'http://localhost:3678/api/';
+   }
   getHotels() {
 
-    return [
-      {
-        _id: '1',
-        name: 'Ritch',
-        type: 'hotel',
-        direccion: 'Gran via 259',
-        phone: '934225489',
-        city:'Barcelona'
-
-      }, {
-        _id: '2',
-        name: 'Pazo dos escudos',
-        type: 'hotel',
-        direccion: 'Av balaidos 36',
-        phone: '986355245',
-        city:'Vigo'
-      }, {
-        _id: '1',
-        name: 'Caravela Pinta',
-        type: 'hotel',
-        direccion: 'Elduayen 16',
-        phone: '986300218',
-        city:'Baiona'
-      }];
+    return this._http.get(this.url + 'hotels')
+ 
   }
 }
