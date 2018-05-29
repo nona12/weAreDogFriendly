@@ -43,7 +43,7 @@ export class HotelListComponent implements OnInit {
     this._hotelService.deleteHotel(id).subscribe(
       result => {
         //this._router.navigate(['/']) 
-        this.getHotel();
+        this.getHotels();
       }, error => {
         alert('Error al intentar borrar el hotel')
       }

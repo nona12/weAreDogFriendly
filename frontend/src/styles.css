@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*Cabecera*/
+#fondo{
+    text-align: center;
+    width: 100%;
+}
+#fondo img{
+       width: 100%;
+}
+
+.menuButtons{
+
+text-align: center;
+color: rgb(72, 74, 102);
+font-weight: 600;
+}
+.menuButtons p{
+    background: #fbffa8;
+    border-radius: 20px;
+    padding-right: 6px;
+    padding-left: 6px;
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+    }
+
+.logo{
+    
+    margin-left: 15px;
+    }
+
+.linea{
+border-right: #dfe8e8 1px solid; 
+}

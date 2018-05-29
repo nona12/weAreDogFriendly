@@ -1,5 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Catálogo</a>
+  
+    <img id="logo" src="..//assets/img/logo_small.png">
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -14,12 +16,27 @@
         </a>
       </li>
       <li class="nav-item">
-       <a class="nav-link" [routerLink]="['/create-hotel']"> Añadir nuevo hotel </a>
+        <a class="nav-link" [routerLink]="['/create-hotel']"> Añadir nuevo hotel </a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-    </form>
+
+    <div class="menuButtons linea">
+      <img src="..//assets/img/phone.png" ng-click="">
+      <p>Info cliente</p>
+    </div>
+    <div class="menuButtons linea">
+      <img src="..//assets/img/info.png" ng-click="">
+      <p>627 059 985</p>
+    </div>
+
+    <div class="menuButtons">
+        <img src="..//assets/img/login.png" ng-click="">
+        <p>Login</p>
+      </div>
+
   </div>
 </nav>
+<div id="fondo">
+  <img src="..//assets/img/fondo.jpg">
+
+</div>
