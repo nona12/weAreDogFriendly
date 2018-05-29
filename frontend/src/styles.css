@@ -1,6 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
 
+/**************************/
+/*Generales*/
+/**************************/
+h1{
+    color: #33354A; 
+}
+
+h2{
+    color: #33354a;
+}
+
+h3{
+    color: #20c1bd;  
+}
+
+/**************************/
 /*Cabecera*/
+/**************************/
 #fondo{
     text-align: center;
     width: 100%;
@@ -32,4 +49,17 @@ font-weight: 600;
 
 .linea{
 border-right: #dfe8e8 1px solid; 
+}
+
+/**************************/
+/*hotel-list.component*/
+/**************************/
+
+.listCards{
+    margin-bottom:10px;
+    margin-left: 20px;
+    margin-right: 250px;
+}
+.listCards img{
+    width: 20rem;
 }
