@@ -39,4 +39,6 @@ export class HotelListComponent implements OnInit {
 
   }
 
+  
+
 }

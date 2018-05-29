@@ -10,6 +10,7 @@ import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { MenuComponent } from './menu/menu.component';
 import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
 import { HotelAddComponent } from './hotel-add/hotel-add.component';
+import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HotelAddComponent } from './hotel-add/hotel-add.component';
     HotelListComponent,
     MenuComponent,
     HotelDetailComponent,
-    HotelAddComponent
+    HotelAddComponent,
+    HotelEditComponent
   ],
   imports: [
     BrowserModule,
