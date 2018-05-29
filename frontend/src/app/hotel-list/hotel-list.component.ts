@@ -39,6 +39,17 @@ export class HotelListComponent implements OnInit {
 
   }
 
-  
+  deleteHotel(id: String) {
+    this._hotelService.deleteHotel(id).subscribe(
+      result => {
+        //this._router.navigate(['/']) 
+        this.getHotel();
+      }, error => {
+        alert('Error al intentar borrar el hotel')
+      }
+    )
+  }
+
+
 
 }

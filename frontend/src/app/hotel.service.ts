@@ -40,4 +40,9 @@ export class HotelService {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     return this._http.put(this.url + 'hotel/' + id, params, { headers: headers });
   }
+
+  deleteHotel(id: String) {
+    //todo headers ?????   
+    return this._http.delete(this.url + "hotel/" + id)
+  }
 }

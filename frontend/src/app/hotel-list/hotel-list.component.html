@@ -7,8 +7,8 @@
     <div class="card-body">
       <h4 class="card-title">{{hotel.name}}</h4>
          <a [routerLink]="['/hotel',hotel._id]" class="btn btn-primary">Ver detalles</a>
-         <a class="btn btn-primary" [routerLink]="['/edit-car',car._id]"> Editar </a>
-      <a href="#" class="btn btn-primary">Borrar</a>
+         <a class="btn btn-primary" [routerLink]="['/edit-hotel',hotel._id]"> Editar </a>
+         <a (click)="deleteHotel(hotel._id)" class="btn btn-primary">Borrar</a>
     </div>
   </div>
 </div>
