@@ -1,0 +1,17 @@
+<h2 class="text-center">{{title}}</h2>
+
+<h1> Listado de hoteles </h1>
+<div *ngFor="let hotel of hotels;">
+  <div class="card mb-3" style="width: 20rem;">
+    <img class="card-img-top img-fluid" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+      alt="Hotel image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{hotel.name}}</h4>
+      <p class="card-text">{{hotel.city}}</p>
+      <p class="card-text">{{hotel.direccion}}</p>
+      <p class="card-text">{{hotel.phone}}</p>
+      <p class="card-text">{{hotel.city}}</p>
+      <a href="#" class="btn btn-primary">Ver detalles</a>
+    </div>
+  </div>
+</div>
