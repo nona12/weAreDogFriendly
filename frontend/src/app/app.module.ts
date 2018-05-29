@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { HotelListComponent } from './hotel-list/hotel-list.component';
 import { MenuComponent } from './menu/menu.component';
 import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
+import { HotelAddComponent } from './hotel-add/hotel-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HotelListComponent,
     MenuComponent,
-    HotelDetailComponent
+    HotelDetailComponent,
+    HotelAddComponent
   ],
   imports: [
     BrowserModule,

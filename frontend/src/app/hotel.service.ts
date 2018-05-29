@@ -26,4 +26,11 @@ export class HotelService {
   getHotel(id: String) {
     return this._http.get(this.url + 'hotel/' + id);
   }
+
+  addHotel(hotel: Hotel) {
+    const json = JSON.stringify(hotel);
+    const params = json;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    return this._http.post(this.url + 'hotel', params, { headers: headers });
+  }
 }
