@@ -1,0 +1,29 @@
+<h2 class="text-center">{{title}}</h2>
+
+<form class="col" #formHotels="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <p>
+      <input required class="form-control" id="nombre" type="text" name="nombre" #modelo="ngModel" [(ngModel)]="hotel.name" placeholder="Nombre del Hotel"/>
+      <small class="text-danger form-text" *ngIf="nombre.touched && !nombre.valid">El nombre del hotel no es válido</small>
+    </p>
+    <label for="direccion">Direccion:</label>
+    <p>
+      <input required class="form-control" id="direccion" type="text" name="direccion" #precio="ngModel" [(ngModel)]="hotel.direccion" placeholder="Dirección del Hotel"/>
+      <small class="text-danger form-text" *ngIf="direccion.touched && !direccion.valid">La dirección de hotel introducida no es válida</small>
+    </p>
+    <label for="telefono">Telefono:</label>
+    <p>
+      <input required class="form-control" id="telefono" type="text" name="telefono" #precio="ngModel" [(ngModel)]="hotel.phone" placeholder="Telefono del Hotel" />
+      <small class="text-danger form-text" *ngIf="telefono.touched && !telefono.valid">El telefono introducido no es válido</small>
+    </p>
+    <label for="ciudad">Ciudad:</label>
+    <p>
+      <input required class="form-control" id="ciudad" type="text" name="ciudad" #precio="ngModel" [(ngModel)]="hotel.city" placeholder="Ciudad del Hotel"/>
+      <small class="text-danger form-text" *ngIf="ciudad.touched && !ciudad.valid">El nombre de ciudad introducida no es válida</small>
+    </p>
+
+
+    <button [disabled]="!formHotels.valid" type="submit" class="btn btn-primary">Añadir hotel</button>
+    </div>
+</form>
