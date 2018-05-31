@@ -37,12 +37,20 @@ function saveHotel(req, res) {
     var params = req.body
     // creamos un objeto del modelo Hotel
     var hotel = new Hotel();
-    // rellenamos el objeto
+    // rellenamos el objetoz
+   
     hotel.name = params.name
     hotel.type = params.type
     hotel.direccion = params.direccion
     hotel.phone = params.phone
     hotel.city = params.city
+    hotel.province = params.province
+    hotel.web = params.web
+    hotel.email = params.email
+    hotel.price = params.price
+    hotel.description = params.description
+    hotel.punctuation = params.punctuation
+
     // guardamos el favorito
     hotel.save((err, hotelStored) => {
         if (err) {

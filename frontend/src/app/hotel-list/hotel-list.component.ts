@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Hotel } from '../models/hotel';
 import { HotelService } from '../hotel.service';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-hotel-list',
@@ -15,7 +16,9 @@ export class HotelListComponent implements OnInit {
   public title: String;
   public errorMessage: String;
 
-  constructor(private _hotelService: HotelService) { }
+  constructor(
+    private _hotelService: HotelService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.title = 'Listado de Hoteles';
@@ -42,8 +45,8 @@ export class HotelListComponent implements OnInit {
   deleteHotel(id: String) {
     this._hotelService.deleteHotel(id).subscribe(
       result => {
-        //this._router.navigate(['/']) 
-        this.getHotels();
+        this._router.navigate(['/'])
+        this._hotelService.getHotels();
       }, error => {
         alert('Error al intentar borrar el hotel')
       }

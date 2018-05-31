@@ -8,6 +8,12 @@ var hotelSchema = Schema({
     direccion: String,
     phone: String,
     city: String,
+    province:String,
+    web:String,
+    email:String,
+    price:String,
+    description:String,
+    punctuation:Number,
 
 })
 // exportamos el modelo

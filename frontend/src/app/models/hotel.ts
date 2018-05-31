@@ -5,5 +5,11 @@ export class Hotel {
         public type: String,
         public direccion: String,
         public phone: String,
-        public city: String) { }
+        public city: String,
+        public province:String,
+        public web:String,
+        public email:String,
+        public price:String,
+        public description:String,
+        public punctuation:Number,) { }
 }

@@ -17,7 +17,8 @@ export class HotelEditComponent implements OnInit {
   public hotel: Hotel;
 
 
-  constructor(private _hotelService: HotelService,
+  constructor(
+    private _hotelService: HotelService,
     private _route: ActivatedRoute,
     private _router: Router) {
     this.title = 'Editar Hotel';
@@ -25,7 +26,7 @@ export class HotelEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hotel = new Hotel('', '', '', '', '', '');
+    this.hotel = new Hotel('', '', '', '', '', '','','','','','',0);
     this.getHotel();
   }
 
@@ -50,13 +51,15 @@ export class HotelEditComponent implements OnInit {
           }
         }
       );
-    });
+      });
+    
   }
 
   public onSubmit() {
-    console.log(this.hotel);
-    
-    this._hotelService.editHotel(this.id,this.hotel).subscribe(
+    console.log(this.hotel,);
+    this._route.params.forEach((params: Params) => {
+      const id = params['id'];
+    this._hotelService.editHotel(id,this.hotel).subscribe(
       response => {
         if (!response['hotel']) {
           alert('Error en el servidor');
@@ -73,7 +76,8 @@ export class HotelEditComponent implements OnInit {
         }
       }
     );
-  }
+  });
+}
 }
 
 
