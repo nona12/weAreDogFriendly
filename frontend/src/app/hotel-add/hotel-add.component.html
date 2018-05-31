@@ -1,11 +1,11 @@
 <h2 class="text-center">{{title}}</h2>
 
-<form class="col" #formHotels="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+<form class="col" #formHotels="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data"  >
   <div class="form-group">
 
     <label for="photo">Añade una foto de tu local</label>
     <p>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="photo">
+      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="photo" #photo="ngModel" [(ngModel)]="hotel.photo">
     </p>
 
     <label for="tipoLocal">¿Qué tipo de local quieres guardar?</label>
@@ -80,6 +80,6 @@
 
 
 
-    <button [disabled]="!formHotels.valid" type="submit" class="btn btn-primary">Añadir hotel</button>
+    <button [disabled]="!formHotels.valid" type="submit" class="btn btn-primary" enctype="multipart/form-data">Añadir hotel</button>
   </div>
 </form>

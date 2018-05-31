@@ -22,7 +22,7 @@ export class HotelAddComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hotel = new Hotel('', '', '', '', '', '','','','','','',0);
+    this.hotel = new Hotel('', '', '', '', '', '','','','','','','',0);
     console.log(this.hotel);
   }
 

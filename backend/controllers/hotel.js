@@ -1,4 +1,14 @@
-var Hotel = require('../models/hotel')
+var Hotel = require('../models/hotel');
+
+var cloudinary = require("cloudinary");
+
+cloudinary.config({
+    cloud_name:"nona12",
+    api_key:"718295277149111",
+    api_secret:"FrH_xWEF6nXse0pviwJlyk4q1uc"
+});
+
+
 
 
 function getHotel(req, res) {
@@ -33,6 +43,8 @@ function getHotels(req, res) {
     })
 }
 
+
+
 function saveHotel(req, res) {
     var params = req.body
     // creamos un objeto del modelo Hotel
@@ -40,6 +52,7 @@ function saveHotel(req, res) {
     // rellenamos el objetoz
    
     hotel.name = params.name
+    hotel.photo=params.photo
     hotel.type = params.type
     hotel.direccion = params.direccion
     hotel.phone = params.phone
@@ -51,15 +64,23 @@ function saveHotel(req, res) {
     hotel.description = params.description
     hotel.punctuation = params.punctuation
 
-    // guardamos el favorito
-    hotel.save((err, hotelStored) => {
-        if (err) {
-            // si hay un error devolvemos un error de tipo servidor 500
-            res.status(500).send({ menssage: 'error al guardar el hotel' })
-        } else {
-            res.status(200).send({ accion: "save", hotel: hotelStored })
-        }
-    })
+    console.log(hotel.photo)
+       // guardamos en cloudinary
+       cloudinary.uploader.upload(hotel.photo,
+         function(result) { console.log(result)
+            params.photo=result.url;
+
+            // guardamos en base de datos
+            hotel.save((err, hotelStored) => {
+                if (err) {
+                    // si hay un error devolvemos un error de tipo servidor 500
+                    res.status(500).send({ menssage: 'error al guardar el hotel' })
+                } else {
+                    res.status(200).send({ accion: "save", hotel: hotelStored })
+                }
+            })
+         });
+
 }
 
 

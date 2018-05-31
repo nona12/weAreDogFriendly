@@ -4,6 +4,8 @@ import { HotelListComponent } from   './hotel-list/hotel-list.component';
 import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
 import { HotelAddComponent } from './hotel-add/hotel-add.component';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
+import { InfoComponent } from './info/info.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const appRoutes: Routes = [
@@ -12,6 +14,8 @@ const appRoutes: Routes = [
     {path: 'hotel/:id', component: HotelDetailComponent},
     {path: 'create-hotel', component: HotelAddComponent}, 
     {path: 'edit-hotel/:id', component: HotelEditComponent},
+    {path: 'info', component: InfoComponent},
+    {path: 'contact', component: ContactComponent},
     { path: '**', component: HotelListComponent },
 ];
 

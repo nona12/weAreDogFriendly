@@ -1,17 +1,47 @@
 <h2 class="text-center">{{title}}</h2>
 <div *ngIf="hotel">
-  <h4>{{hotel.name}}</h4>
-  <p>{{hotel.type}}</p>
-  <p>{{hotel.direccion}}</p>
-  <p>{{hotel.phone}}</p>
-  <p>{{hotel.city}}</p>
-  <p>{{hotel.province}}</p>
-  <p>{{hotel.web}}</p>
-  <p>{{hotel.email}}</p>
-  <p>{{hotel.price}}</p>
-   <p>{{hotel.description}}</p>
-  <p>{{hotel.puntuation}}</p>
+  <div class="card listCards">
+
+    <div class="row">
+      <div class="col-sm-4">
+        <img class="card-img-top img-fluid" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+          alt="Hotel image cap">
+      </div>
+
+      <div class="col-sm-8">
+        <div class="card-title">
+          <h4>{{hotel.name}}</h4>
+          <img src="../../assets/img/mapa.png"> Ver mapa</div>
+        <p>{{hotel.description}}</p>
+        <span>
+          <img src="../../assets/img/hotelList/adress.png" /> {{hotel.direccion}}
+          <img src="../../assets/img/hotelList/star.png" />{{hotel.city}}
+          <img src="../../assets/img/hotelList/star.png" />{{hotel.province}}</span>
+        <br>
+        <br>
 
 
+        <span>
+          <img src="../../assets/img/hotelList/phone.png" /> {{hotel.phone}}
+        </span>
+
+
+        <span>
+            <img src="../../assets/img/hotelList/web.png" />
+            {{hotel.web}}
+        </span>
+
+
+          <span>
+              <img src="../../assets/img/hotelList/email.png" />
+              {{hotel.email}}
+            </span>
+
+       {{hotel.puntuation}}
+
+
+      </div>
+      <a id="volverButton" href="./" class="btn">Volver</a>
+    </div>
+  </div>
 </div>
-<a href="./">Volver</a>

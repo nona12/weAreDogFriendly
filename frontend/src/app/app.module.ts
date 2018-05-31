@@ -11,6 +11,8 @@ import { MenuComponent } from './menu/menu.component';
 import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
 import { HotelAddComponent } from './hotel-add/hotel-add.component';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
+import { InfoComponent } from './info/info.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -21,6 +23,8 @@ import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
     HotelDetailComponent,
     HotelAddComponent,
     HotelEditComponent,
+    InfoComponent,
+    ContactComponent,
 
   ],
   imports: [
