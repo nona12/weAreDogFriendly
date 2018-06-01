@@ -15,6 +15,7 @@ export class HotelEditComponent implements OnInit {
   public title: String;
   public errorMessage: String;
   public hotel: Hotel;
+ 
 
 
   constructor(
@@ -28,6 +29,7 @@ export class HotelEditComponent implements OnInit {
   ngOnInit() {
     this.hotel = new Hotel('', '', '', '', '', '','','','','','','',0);
     this.getHotel();
+   
   }
 
     getHotel() {

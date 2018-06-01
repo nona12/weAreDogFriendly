@@ -16,6 +16,7 @@ export class HotelListComponent implements OnInit {
   public title: String;
   public errorMessage: String;
 
+
   constructor(
     private _hotelService: HotelService,
     private _router: Router) { }

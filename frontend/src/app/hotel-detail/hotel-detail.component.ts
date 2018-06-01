@@ -16,6 +16,7 @@ export class HotelDetailComponent implements OnInit {
   public title: String;
   public errorMessage: String;
   public hotel: Hotel;
+  
 
   constructor(private _hotelService: HotelService,
     private _route: ActivatedRoute,
@@ -23,6 +24,7 @@ export class HotelDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getHotel();
+   
   }
   getHotel() {
     this._route.params.forEach((params: Params) => {

@@ -15,6 +15,7 @@ export class HotelAddComponent implements OnInit {
   public errorMessage: String;
   public hotel: Hotel;
 
+
   constructor(private _hotelService: HotelService,
     private _route: ActivatedRoute,
     private _router: Router) {
@@ -24,6 +25,7 @@ export class HotelAddComponent implements OnInit {
   ngOnInit() {
     this.hotel = new Hotel('', '', '', '', '', '','','','','','','',0);
     console.log(this.hotel);
+ 
   }
 
   onSubmit() {

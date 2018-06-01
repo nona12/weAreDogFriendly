@@ -6,6 +6,8 @@ import { HotelAddComponent } from './hotel-add/hotel-add.component';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 import { InfoComponent } from './info/info.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 const appRoutes: Routes = [
@@ -16,6 +18,8 @@ const appRoutes: Routes = [
     {path: 'edit-hotel/:id', component: HotelEditComponent},
     {path: 'info', component: InfoComponent},
     {path: 'contact', component: ContactComponent},
+    {path: 'login', component: LoginComponent},
+    {path: 'login-form', component: LoginFormComponent},
     { path: '**', component: HotelListComponent },
 ];
 

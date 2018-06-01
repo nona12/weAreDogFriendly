@@ -13,6 +13,8 @@ import { HotelAddComponent } from './hotel-add/hotel-add.component';
 import { HotelEditComponent } from './hotel-edit/hotel-edit.component';
 import { InfoComponent } from './info/info.component';
 import { ContactComponent } from './contact/contact.component';
+import { LoginComponent } from './login/login.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 
 @NgModule({
@@ -25,6 +27,8 @@ import { ContactComponent } from './contact/contact.component';
     HotelEditComponent,
     InfoComponent,
     ContactComponent,
+    LoginComponent,
+    LoginFormComponent,
 
   ],
   imports: [

@@ -13,12 +13,22 @@ import { of } from 'rxjs/observable/of';
 
 export class HotelService {
   public url: String;
+  public mostrarMenu:Boolean;
+  
 
   constructor(private _http: HttpClient) {
     this.url = 'http://localhost:3678/api/';
   }
 
+mostrar(){
+  this.mostrarMenu=true;
+  console.info("mostrar")
+  console.info(this.mostrarMenu)
+}
 
+ocultar(){
+  this.mostrarMenu=false;
+}
   getHotels() {
     return this._http.get(this.url + 'hotels')
   }

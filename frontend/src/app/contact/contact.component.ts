@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactComponent implements OnInit {
   public title: String;
+  public mostrarMenu:Boolean;
 
   constructor() {
     
@@ -14,6 +15,8 @@ export class ContactComponent implements OnInit {
 
   ngOnInit() {
     this.title='Contacta con nosotros';
+    this.mostrarMenu=false;
+
   }
 
 }
