@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { Hotel } from './models/Hotel';
+import { Hotel } from './models/hotel';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
@@ -13,13 +13,14 @@ import { of } from 'rxjs/observable/of';
 
 export class HotelService {
   public url: String;
-  public mostrarMenu:Boolean;
+ // public mostrarMenu:Boolean;
   
 
   constructor(private _http: HttpClient) {
     this.url = 'http://localhost:3678/api/';
   }
 
+  /*
 mostrar(){
   this.mostrarMenu=true;
   console.info("mostrar")
@@ -28,7 +29,9 @@ mostrar(){
 
 ocultar(){
   this.mostrarMenu=false;
-}
+}*/
+
+
   getHotels() {
     return this._http.get(this.url + 'hotels')
   }
@@ -52,7 +55,6 @@ ocultar(){
   }
 
   deleteHotel(id: String) {
-    //todo headers ?????   
     return this._http.delete(this.url + "hotel/" + id)
   }
 }

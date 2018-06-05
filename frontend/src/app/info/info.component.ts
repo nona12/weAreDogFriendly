@@ -19,7 +19,7 @@ export class InfoComponent implements OnInit {
 
   ngOnInit() {
     this.title='Quienes Somos';
-    this._hotelService.mostrar();
+   // this._hotelService.mostrar();
  
   }
 
