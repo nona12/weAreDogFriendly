@@ -33,8 +33,8 @@
           </div>
 
           
-          <a class="btn buttonsUser" [routerLink]="['/edit-hotel',hotel._id]"> Editar </a>
-          <a (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">Borrar</a>
+          <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+          <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
 
         </div>
       </div>
