@@ -1,0 +1,33 @@
+<nav id="navbar" class="navbar navbar-expand-lg navbar-dark" >
+    
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><h5>Hoteles   |</h5>
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item active">
+          <a class="nav-link" href="#"><h5>Bares y Restaurantes   |</h5>
+          </a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="#"><h5>Otros Establecimientos   |</h5>
+            </a>
+          </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/create-hotel']"> <h5>Añadir nuevo local</h5> </a>
+      </li>
+    </ul>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Qué estás buscando?" aria-label="Search">
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Buscar</button>
+      </form>
+  </div>
+</nav>

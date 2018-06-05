@@ -9,18 +9,9 @@
 
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Listado de hoteles
-          <span class="sr-only">(current)</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/create-hotel']"> Añadir nuevo hotel </a>
-      </li>
-    </ul>
+ 
 
-    <div class="menuButtons linea" [routerLink]="['/info']">
+    <div class="menuButtons ml-auto linea" [routerLink]="['/info']">
       <img src="..//assets/img/info.png" ng-click="">
       <p>Info cliente</p>
     </div>
@@ -33,8 +24,9 @@
         <img src="..//assets/img/login.png" ng-click="">
         <p>Login</p>
       </div>
+    </div>
 
-  </div>
+
 </nav>
 <div id="fondo">
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">

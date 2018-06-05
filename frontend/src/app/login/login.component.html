@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<img id="imgLogo" src="../../assets/img/logo.png">
+<img id="imgLogo" class="img-fluid" src="../../assets/img/logo.png">
 
 <br>
 
@@ -18,7 +18,10 @@
   <input class="name" type="text" placeholder="Nombre de usuario"/>
   <input class="pw" type="password" placeholder="Contraseña"/>
   <input class="button" type="submit" value="Log in"/>
-  <a [routerLink]="['/login-form']">Registrate</a>
+  
+  <br>
+ <a [routerLink]="['/login-form']"> <img src="../../assets/img/signup.png" > </a> 
+  Aun no tienes cuenta?
 </form>
   
   

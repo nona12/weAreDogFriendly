@@ -1,34 +1,43 @@
 <h2 class="text-center">{{title}}</h2>
+<div class="container">
 
-<div *ngFor="let hotel of hotels;">
-  <div class="card listCards">
-    <div class="row">
-      <div class="col-sm-4">
-        <img class="card-img-top img-fluid" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
-          alt="Hotel image cap">
-      </div>
+  <div *ngFor="let hotel of hotels;">
+    <div class="card listCards">
+      <div class="row">
+        <div class="col-sm-5">
+          <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+            alt="Hotel image cap">
+        </div>
 
-      <div class="col-sm-8">
-        <div class="card-title">
-          <h4>{{hotel.name}}</h4>
-          <img src="../../assets/img/mapa.png"> Ver mapa</div>
-        <p>{{hotel.description}}
-          <p>
-            <div id="precioButton">
-              <div class="row">
-                <div class="col-sm-8">
+        <div class="col-sm-7">
+          <div class="card-title title">
+            <h4>{{hotel.name}}</h4>
+          </div>
+          <img  src="../../assets/img/mapa.png"> Ver mapa
+          <hr>
+          <p>{{hotel.description}}</p>
+          <hr>
+          <div id="precioButton">
+
+            <table>
+              <tr>
+                <td>
                   pers/noche desde:
                   <h5>{{hotel.price}}€</h5>
-                </div>
-                <div id="buttonVerPrecio" class="col-sm-4" [routerLink]="['/hotel',hotel._id]">Ver</div>
-              </div>
-            </div>
+                </td>
+                <td>
+                  <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                </td>
+              </tr>
+            </table>
+          </div>
 
-            <br>
-            <a class="btn" [routerLink]="['/edit-hotel',hotel._id]"> Editar </a>
-            <a (click)="deleteHotel(hotel._id)" class="btn">Borrar</a>
+          
+          <a class="btn buttonsUser" [routerLink]="['/edit-hotel',hotel._id]"> Editar </a>
+          <a (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">Borrar</a>
 
+        </div>
       </div>
     </div>
   </div>
-  </div>
+</div>

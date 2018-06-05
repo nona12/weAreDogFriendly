@@ -36,7 +36,7 @@ color: rgb(72, 74, 102);
 font-weight: 600;
 }
 .menuButtons p{
-    background: #fbffa8;
+    background: #fdffd9;
     border-radius: 20px;
     padding-right: 6px;
     padding-left: 6px;
@@ -54,15 +54,52 @@ font-weight: 600;
 border-right: #dfe8e8 1px solid; 
 }
 
+#navbar{
+  background-color: #33354A;
+  margin-bottom:40px;
+}
+
+
+/****************************/
+/*Footer*/
+/*****************************/
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main {
+  flex-grow: 1;
+}
+
+
+.footer {
+  background-color: #33354A;
+  color:#ffffff;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+.footer p{
+  color:#ffffff;
+}
+
+.footer .iconos{
+  margin: 30px 40px 10px 10px;
+}
+.footer .contact{
+  margin-right: 5px;
+}
+
+
 /**************************/
 /*hotel-list.component*/
 /**************************/
 
 .listCards{
-    margin-bottom:30px;
-    margin-left: 20px;
-    margin-right: 250px;
-    padding-bottom:10px; 
+ 
+    margin-bottom:20px; 
 }
 
 
@@ -70,19 +107,30 @@ border-right: #dfe8e8 1px solid;
     text-align: left;
     background-color: #FBFFA8;
     color:#33354A;
+    height: 60px;
+    padding-left: 20px;
+    padding-top: 13px;
 }
 .listCards a{
     margin-right: 5px;
     background-color: #20c1BD;
     color:#ffffff;
-
- 
 }
+.listCards p{
+ margin-top:10px;
+  
+}
+
 #buttonVerPrecio{
     background-color:#20c1bd;
     color:#ffffff;
     font-size:large;
     line-height: 40px;
+    margin-left:10px;
+    width: 100%;
+    text-align: center;
+    margin-right: 30px;
+  
 
 }
 
@@ -96,6 +144,12 @@ border-right: #dfe8e8 1px solid;
     font-size: x-small
     
 }
+
+.buttonsUser{
+  margin-top:5px;
+  margin-bottom: 5px;
+}
+
 #precioButton h5{
     text-align: center;
 }
@@ -108,8 +162,17 @@ border-right: #dfe8e8 1px solid;
 
 }
 
+/**************************/
+/*Form add hotel*/
+/**************************/
+#containerForm{
+  margin-top:60px;
+  background-color: #e4f8f3;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  padding: 45px 20px 20px 20px;
 
-
+}
 /**************************/
 /*login*/
 /**************************/
@@ -143,7 +206,7 @@ border-right: #dfe8e8 1px solid;
 
 #formLogin input {
     display: block;
-    width: 350px;
+    width: 95%;
     padding: 14px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -201,28 +264,119 @@ a:visited {
     transition: all .3s ease-in-out;
 }
 
+#formLogin a {
+padding-top:400px;
+}
+
+
+/*[ Responsive ]*/
+
+@media (max-width: 1200px) {
+  #formLogin {
+    width: 50%;
+    margin: 10% auto;
+  }
+
+  #formLogin input {
+    width: 95%;
+  }
+}
+
+@media (max-width: 992px) {
+  #formLogin {
+    width: 50%;
+    margin: 10% auto;
+  }
+
+  #formLogin input {
+    width: 95%;
+  }
+
+
+}
+
+@media (max-width: 768px) {
+  #formLogin {
+    width: 60%;
+    margin: 10% auto;
+  }
+
+  #formLogin input {
+    width: 95%;
+  }
+}
+
+@media (max-width: 576px) {
+  #formLogin {
+    width: 70%;
+    margin: 10% auto;
+    height: 450px;
+  }
+
+  #formLogin input {
+    width: 95%;
+  }
+  
+}
+
 /**************************/
-/*login*/
+/*Info*/
 /**************************/
 
 #containerInfo{
     margin: 20px 20px 20px 20px;
+    width: 900px;
+    background-color: #dcf5f1;
+    border-radius: 20px;
+    padding: 30px 30px 30px 30px;
 }
 
 #containerInfo img{
-    margin-top: 20px;
+     margin-top: 20px;
+    
+}
+#containerInfo p{
+  margin-top: 20px;
+ 
+}
+#firstParagraph{
+margin-top:40px;
 }
 
-#containerInfo #citaInfo{
-    position: relative;
-    margin:50px auto;
+@media (max-width: 1200px) {
+  #containerInfo {
+    width: 70%;
+    margin: 10% auto;
+    margin: 20px 20px 20px 20px;
+    padding: 30px 30px 30px 30px;
+  }
+
 }
 
+@media (max-width: 992px) {
+  #containerInfo {
+    width: 70%;
+    margin: 20px 20px 20px 20px;
+    padding: 30px 30px 30px 30px;
+  }
+ }
 
+@media (max-width: 768px) {
+  #containerInfo {
+    width: 80%;
+    margin: 20px 20px 20px 20px;
+    padding: 30px 30px 30px 30px;
+  }
 
+}
 
-
-
+@media (max-width: 576px) {
+  #containerInfo {
+    width: 95%;
+    margin: 20px 20px 20px 20px;
+    padding: 30px 30px 30px 30px;
+    }
+  }
 /**************************/
 /*Contact*/
 /**************************/
@@ -332,7 +486,7 @@ iframe {
 }
 
 .container-contact1 {
-  width: 1163px;
+  width: 900px;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -363,8 +517,9 @@ padding-bottom: 40px;
 
 
 #personal{
-    background-color:#eefbf8;
+    background-color:#dff7f2;
     width: 450px;
+    border-radius:20px; 
 }
 
 #logoContacto{
@@ -373,8 +528,8 @@ padding-bottom: 40px;
 }
 
 
-/*------------------------------------------------------------------
-[  ]*/
+
+/*------------------------------------------------------------------*/
 .contact1-form {
   width: 390px;
 }
@@ -535,7 +690,7 @@ textarea.input1 + .shadow-input1 {
   }
 
   .contact1-pic {
-    width: 35%;
+    width: 10%;
   }
 
   .contact1-form {
@@ -543,7 +698,7 @@ textarea.input1 + .shadow-input1 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .container-contact1 {
     padding: 90px 80px 88px 80px;
   }
@@ -561,6 +716,7 @@ textarea.input1 + .shadow-input1 {
   .container-contact1 {
     padding: 90px 15px 88px 15px;
   }
+  
 }
 
 
@@ -592,6 +748,17 @@ textarea.input1 + .shadow-input1 {
     -webkit-border-radius: 3px;
     border-radius: 3px;
 }
+
+@media (max-width: 1000px) {
+  .imglist {
+   width: 70%;
+  }
+  #personal{
+    display: none;
+  }
+}
+
+
 
 /* css lista info personal  -------------- */
 

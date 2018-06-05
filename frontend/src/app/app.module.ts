@@ -15,6 +15,7 @@ import { InfoComponent } from './info/info.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { LoginFormComponent } from './login-form/login-form.component';
     ContactComponent,
     LoginComponent,
     LoginFormComponent,
+    NavbarComponent,
 
   ],
   imports: [

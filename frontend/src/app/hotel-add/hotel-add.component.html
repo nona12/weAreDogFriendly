@@ -1,65 +1,101 @@
 <h2 class="text-center">{{title}}</h2>
-
+<div id="containerForm" class="container">
 <form class="col" #formHotels="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
   <div class="form-group">
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="tipoLocal">¿Qué tipo de local quieres guardar?</label>
+        <select id="tipoLocal" class="form-control" required name="tipoLocal" #tipoLocal="ngModel" [(ngModel)]="hotel.type">
+          <option selected>Hotel</option>
+          <option>Bar</option>
+          <option>Otros</option>
+        </select>
+      </div>
+      <div class="form-group col-md-8">
+        <label for="nombre">Nombre:</label>
+        <p>
+          <input required class="form-control" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="hotel.name" placeholder="Nombre del Hotel"
+          />
+        </p>
+      </div>
+    </div>
 
-    <label for="photo">Añade una foto de tu local</label>
-    <p>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1" name="photo" #photo="ngModel" [(ngModel)]="hotel.photo">
-    </p>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="direccion">Direccion:</label>
+        <p>
+          <input required class="form-control" id="direccion" type="text" name="direccion" #direccion="ngModel" [(ngModel)]="hotel.direccion"
+            placeholder="Dirección del Hotel" />
+        </p>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="telefono">Telefono:</label>
+        <p>
+          <input required class="form-control" id="telefono" type="text" name="telefono" #telefono="ngModel" [(ngModel)]="hotel.phone"
+            placeholder="Telefono del Hotel" />
+        </p>
+      </div>
 
-    <label for="tipoLocal">¿Qué tipo de local quieres guardar?</label>
-    <select id="tipoLocal" class="form-control" name="tipoLocal" #tipoLocal="ngModel" [(ngModel)]="hotel.type">
-      <option selected>Hotel</option>
-      <option>Bar</option>
-      <option>Otros</option>
-    </select>
+      <div class="form-group col-md-2">
+        <label for="ciudad">Ciudad:</label>
+        <p>
+          <input required class="form-control" id="ciudad" type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotel.city" placeholder="Ciudad del Hotel"
+          />
+        </p>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="provincia">Provincia:</label>
+        <p>
+          <input required class="form-control" id="provincia" type="text" name="provincia" #provincia="ngModel" [(ngModel)]="hotel.province"
+            placeholder="Provincia" />
+        </p>
+      </div>
+    </div>
 
-    <label for="nombre">Nombre:</label>
-    <p>
-      <input required class="form-control" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="hotel.name" placeholder="Nombre del Hotel"
-      />
-    </p>
+    <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="web">Web:</label>
+      <p>
+        <input required class="form-control" id="web" type="text" name="web" #web="ngModel" [(ngModel)]="hotel.web" placeholder="Web del Hotel"
+        />
+      </p>
+    </div>
 
-    <label for="direccion">Direccion:</label>
-    <p>
-      <input required class="form-control" id="direccion" type="text" name="direccion" #direccion="ngModel" [(ngModel)]="hotel.direccion"
-        placeholder="Dirección del Hotel" />
-    </p>
-    <label for="telefono">Telefono:</label>
-    <p>
-      <input required class="form-control" id="telefono" type="text" name="telefono" #telefono="ngModel" [(ngModel)]="hotel.phone"
-        placeholder="Telefono del Hotel" />
-    </p>
-    <label for="ciudad">Ciudad:</label>
-    <p>
-      <input required class="form-control" id="ciudad" type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotel.city" placeholder="Ciudad del Hotel"
-      />
-    </p>
-    <label for="provincia">Provincia:</label>
-    <p>
-      <input required class="form-control" id="provincia" type="text" name="provincia" #provincia="ngModel" [(ngModel)]="hotel.province"
-        placeholder="Provincia" />
-    </p>
-    <label for="web">Web:</label>
-    <p>
-      <input required class="form-control" id="web" type="text" name="web" #web="ngModel" [(ngModel)]="hotel.web" placeholder="Web del Hotel"
-      />
-    </p>
-    <label for="email">Email:</label>
-    <p>
-      <input required class="form-control" id="email" type="text" name="email" #email="ngModel" [(ngModel)]="hotel.email" placeholder="Email"
-      />
-    </p>
-    <label for="precio">Precio Medio:</label>
-    <p>
-      <input required class="form-control" id="precio" type="text" name="precio" #precio="ngModel" [(ngModel)]="hotel.price" placeholder="Precio medio"
-      />
-    </p>
-    <label for="descripcion">Descripción:</label>
-    <p>
-      <textarea required class="form-control" rows="5" id="descripcion" type="text" name="descripcion" #descripcion="ngModel" [(ngModel)]="hotel.description"></textarea>
-    </p>
-    <button [disabled]="!formHotels.valid" type="submit" class="btn btn-primary" enctype="multipart/form-data">Añadir hotel</button>
+    <div class="form-group col-md-4">
+      <label for="email">Email:</label>
+      <p>
+        <input required class="form-control" id="email" type="text" name="email" #email="ngModel" [(ngModel)]="hotel.email" placeholder="Email"
+        />
+      </p>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="precio">Precio Medio:</label>
+      <p>
+        <input required class="form-control" id="precio" type="text" name="precio" #precio="ngModel" [(ngModel)]="hotel.price" placeholder="Precio medio"
+        />
+      </p>
+    </div>
+    </div>
   </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-5">
+      <label for="descripcion">Descripción:</label>
+      <p>
+        <textarea required class="form-control" rows="5" id="descripcion" type="text" name="descripcion" #descripcion="ngModel" [(ngModel)]="hotel.description"></textarea>
+      </p>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="photo">Añade una foto de tu local</label>
+      <p>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1" name="photo" #photo="ngModel" [(ngModel)]="hotel.photo">
+      </p>
+    </div>
+    <div class="form-group col-md-3">
+    <button [disabled]="!formHotels.valid" type="submit" class="btn btn-info" enctype="multipart/form-data">Añadir Local</button>
+  </div>
+  </div>
+
 </form>
+</div>
