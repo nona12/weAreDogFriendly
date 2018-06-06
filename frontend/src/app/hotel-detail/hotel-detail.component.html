@@ -1,47 +1,53 @@
 <h2 class="text-center">{{title}}</h2>
-<div *ngIf="hotel">
-  <div class="card listCards">
+<div class="container">
+  <div *ngIf="hotel">
+    <div class="card listCards">
 
-    <div class="row">
-      <div class="col-sm-4">
-        <img class="card-img-top img-fluid" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
-          alt="Hotel image cap">
-      </div>
+      <div class="row">
+        <div class="col-sm-5">
+          <img class="card-img-top img-fluid" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+            alt="Hotel image cap">
+        </div>
 
-      <div class="col-sm-8">
-        <div class="card-title">
-          <h4>{{hotel.name}}</h4>
-          <img src="../../assets/img/mapa.png"> Ver mapa</div>
-        <p>{{hotel.description}}</p>
-        <span>
-          <img src="../../assets/img/hotelList/adress.png" /> {{hotel.direccion}}
-          <img src="../../assets/img/hotelList/star.png" />{{hotel.city}}
-          <img src="../../assets/img/hotelList/star.png" />{{hotel.province}}</span>
-        <br>
-        <br>
-
-
-        <span>
-          <img src="../../assets/img/hotelList/phone.png" /> {{hotel.phone}}
-        </span>
-
-
-        <span>
-            <img src="../../assets/img/hotelList/web.png" />
-            {{hotel.web}}
-        </span>
-
-
+        <div class="col-sm-7">
+          <div class="card-title title">
+            <h4>{{hotel.name}}</h4>
+          </div>
+          <img src="../../assets/img/mapa.png"> Ver mapa
+          <hr>
+          <p>{{hotel.description}}</p>
+          <hr>
           <span>
-              <img src="../../assets/img/hotelList/email.png" />
-              {{hotel.email}}
-            </span>
+            <img src="../../assets/img/hotelView/adress.png" /> {{hotel.direccion}}
+            <img src="../../assets/img/hotelView/star.png" />{{hotel.city}}
+            <img src="../../assets/img/hotelView/star.png" />{{hotel.province}}</span>
 
-       {{hotel.puntuation}}
+          <div class="row">
+            <div class="col-sm-6">
+              <p>
+                <img src="../../assets/img/hotelView/phone.png" /> {{hotel.phone}}</p>
 
+
+
+
+              <p>
+                <img src="../../assets/img/hotelView/web.png" /> {{hotel.web}}</p>
+
+
+
+
+              <p>
+                <img src="../../assets/img/hotelView/email.png" /> {{hotel.email}}</p>
+            </div>
+            <div class="col-sm-6">
+               <a href="./"><img src="../../assets/img/info/back.png" ></a>
+              
+            </div>
+
+          </div>
+
+        </div>
 
       </div>
-      <a id="volverButton" href="./" class="btn">Volver</a>
     </div>
   </div>
-</div>
