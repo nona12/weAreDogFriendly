@@ -16,6 +16,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
@@ -39,7 +40,7 @@ import { NavbarComponent } from './navbar/navbar.component';
     HttpClientModule,
     routing
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
