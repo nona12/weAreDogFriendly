@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MessageService } from './services/message.service';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { MessageService } from './services/message.service';
     LoginComponent,
     LoginFormComponent,
     NavbarComponent,
+    FooterComponent,
 
   ],
   imports: [
