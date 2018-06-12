@@ -8,6 +8,8 @@ import { InfoComponent } from './info/info.component';
 import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { LoginFormComponent } from './login-form/login-form.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import {GuardService} from './services/guard.service'
 
 
 const appRoutes: Routes = [
@@ -20,6 +22,7 @@ const appRoutes: Routes = [
     {path: 'contact', component: ContactComponent},
     {path: 'login', component: LoginComponent},
     {path: 'login-form', component: LoginFormComponent},
+    {path: 'perfil', component: PerfilComponent, canActivate: [GuardService]},
     { path: '**', component: HotelListComponent },
 ];
 

@@ -1,48 +1,13 @@
-<body>
-
-    <div class="contact1">
-      <div class="container-contact11">
-        <div class="contact1-pic js-tilt" data-tilt>
-            <img id="logoContacto" class="img-fluid" src="../../assets/img/big_key.png">
-         
-        </div>
-  
-        <form class="contact1-form validate-form">
-          <span class="contact1-form-title">
-          ¡Bienvenido!
-          </span>
-  
-          <div class="wrap-input1 validate-input" >
-            <input class="input1" type="text" name="name" placeholder="Nombre">
-            <span class="shadow-input1"></span>
-          </div>
-  
-          <div class="wrap-input1 validate-input">
-            <input class="input1" type="text" name="email" placeholder="Email">
-            <span class="shadow-input1"></span>
-          </div>
-  
-          <div class="wrap-input1 validate-input">
-            <input class="input1" type="text" name="subject" placeholder="Contraseña">
-            <span class="shadow-input1"></span>
-          </div>
-          <div class="wrap-input1 validate-input">
-              <input class="input1" type="text" name="subject" placeholder="Confirmar Contraseña">
-              <span class="shadow-input1"></span>
-          </div>
-  
-          <div class="container-contact1-form-btn">
-            <button class="contact1-form-btn">
-              <span>
-                Quiero Registrarme
-                <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-              </span>
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  
-  
-  
-  </body>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()">
+      <h4>Introduzca sus datos de registro</h4>
+      <label>Correo Electrónico</label>
+      <input type="email" id="inputEmail" class="form-control" formControlName="email" autofocus>
+      <label>Contraseña</label>
+      <input type="password" id="inputPassword" class="form-control" formControlName="password">
+      <hr>
+      <button type="submit" class="btn btn-primary">Registrar</button>
+    </form>
+  </div>
+</div>

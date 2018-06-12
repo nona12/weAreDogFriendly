@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en" >
-
-<head>
-  <meta charset="UTF-8">
-  <title>Login Form</title>
-  
-</head>
-
-<body>
-<img id="imgLogo" class="img-fluid" src="../../assets/img/logo.png">
-
-<br>
-
-
-<form id="formLogin">
-  <h4> Login Information </h4>
-  <input class="name" type="text" placeholder="Nombre de usuario"/>
-  <input class="pw" type="password" placeholder="Contraseña"/>
-  <input class="button" type="submit" value="Log in"/>
-  
-  <br>
- <a [routerLink]="['/login-form']"> <img src="../../assets/img/signup.png" > </a> 
-  Aun no tienes cuenta?
-</form>
-  
-  
-
-</body>
-
-</html>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h4>Introduzca los siguientes datos:</h4>
+      <label>Correo Electrónico</label>
+      <input type="email" id="inputEmail" class="form-control" formControlName="email" required autofocus>
+      <label>Contraseña</label>
+      <input type="password" id="inputPassword" class="form-control" formControlName="password" required>
+      <hr>
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Inicie sesión</button>
+    </form>
+    <p class="alert alert-danger" *ngIf="mensaje">
+      El usuario o contraseña no es correcto </p>
+  </div>
+</div>

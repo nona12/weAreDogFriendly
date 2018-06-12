@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
-import {routing, appRoutingProviders} from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
+import { routing, appRoutingProviders } from './app.routing';
+import { ReactiveFormsModule } from '@angular/forms'
 
 
 import { AppComponent } from './app.component';
@@ -18,6 +19,8 @@ import { LoginFormComponent } from './login-form/login-form.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MessageService } from './services/message.service';
 import { FooterComponent } from './footer/footer.component';
+import { AutenticationService } from './services/autentication.service';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 @NgModule({
@@ -34,15 +37,18 @@ import { FooterComponent } from './footer/footer.component';
     LoginFormComponent,
     NavbarComponent,
     FooterComponent,
+    PerfilComponent,
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
-  providers: [MessageService],
+  providers: [MessageService,
+    AutenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

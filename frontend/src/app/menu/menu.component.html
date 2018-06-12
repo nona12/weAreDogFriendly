@@ -20,11 +20,19 @@
       <p>627 059 985</p>
     </div>
 
-    <div class="menuButtons" [routerLink]="['/login']">
+    <div  *ngIf="!isAuth()" class="menuButtons linea" [routerLink]="['/login']">
         <img src="..//assets/img/login.png" ng-click="">
-        <p>Login</p>
+        <p>LogIn</p>
       </div>
+
+      <div  *ngIf="isAuth()"  class="menuButtons" [routerLink]="['/login']">
+        <img src="..//assets/img/logout.png"  (click)="onLogout()">
+        <p>LogOut</p>
+      </div>
+
+
     </div>
+    
 
 
 </nav>
