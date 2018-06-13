@@ -24,7 +24,7 @@ export class AutenticationService {
       userdata.password)
       .then(response => {
         console.log(response);
-        this.router.navigate(['/info']);
+        this.router.navigate(['/perfil']);
       })
       .catch(
         error => {
