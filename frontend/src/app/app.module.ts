@@ -21,6 +21,7 @@ import { MessageService } from './services/message.service';
 import { FooterComponent } from './footer/footer.component';
 import { AutenticationService } from './services/autentication.service';
 import { PerfilComponent } from './perfil/perfil.component';
+import { HotelService } from './services/hotel.service';
 
 
 @NgModule({
@@ -48,7 +49,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     ReactiveFormsModule
   ],
   providers: [MessageService,
-    AutenticationService],
+    AutenticationService, HotelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

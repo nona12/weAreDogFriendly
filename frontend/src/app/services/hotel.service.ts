@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
-import { Hotel } from './models/hotel';
+import { Hotel } from '../models/hotel';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
