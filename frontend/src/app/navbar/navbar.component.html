@@ -21,27 +21,17 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">
-            <h5>Hoteles |</h5>
+            <h5>Establecimientos Perrunos |</h5>
             <span class="sr-only">(current)</span>
           </a>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <h5>Bares y Restaurantes |</h5>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="#">
-            <h5>Otros Establecimientos |</h5>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/create-hotel']">
+         <li class="nav-item">
+          <a *ngIf="isAuth()" class="nav-link" [routerLink]="['/create-hotel']">
             <h5>Añadir nuevo local |</h5>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/perfil']">
+          <a  *ngIf="isAuth()" class="nav-link" [routerLink]="['/perfil']">
             <h5>Perfil de Usuario</h5>
           </a>
         </li>

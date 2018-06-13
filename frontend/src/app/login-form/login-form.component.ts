@@ -9,8 +9,40 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-   registroForm: FormGroup;
-   userdata: any;
+  registroForm: FormGroup;
+  userdata: any;
+  erroresForm = {
+    'email': '',
+    'password': ''
+  }
+
+  mensajesValidacion = {
+    'email': {
+      'required': 'Email obligatorio',
+      'email': 'Introduzca una dirección email correcta'
+    },
+    'password': {
+      'required': 'Contraseña obligatoria',
+      'pattern': 'La contraseña debe tener al menos una letra un número ',
+      'minlength': 'y más de 6 caracteres'
+    }
+  }
+
+  onValueChanged(data?: any) {
+    if (!this.registroForm) { return; }
+    const form = this.registroForm;
+    for (const field in this.erroresForm) {
+      this.erroresForm[field] = '';
+      const control = form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.mensajesValidacion[field];
+        for (const key in control.errors) {
+          this.erroresForm[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
+  
   constructor(private formBuilder: FormBuilder,
     private autService: AutenticationService,
     private router: Router,
@@ -31,13 +63,18 @@ export class LoginFormComponent implements OnInit {
       ]
       ]
     });
+    this.registroForm.valueChanges.subscribe(data =>
+      this.onValueChanged(data));
+    this.onValueChanged();
 
   }
+
+
 
   onSubmit() {
     this.userdata = this.saveUserdata();
     this.autService.registroUsuario(this.userdata);
-    this.router.navigate(['/hotels']) 
+    this.router.navigate(['/hotels'])
   }
 
   saveUserdata() {

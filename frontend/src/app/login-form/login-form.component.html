@@ -28,21 +28,24 @@
         </div>
 
         <div class="wrap-input1 validate-input">
-          <input class="input1" type="text" name="email" placeholder="Email" id="inputEmail" formControlName="email" autofocus>
+          <input class="input1" type="email" name="email" placeholder="Email" id="inputEmail" formControlName="email" required autofocus>
           <span class="shadow-input1"></span>
         </div>
+        <p class="alert alert-danger" *ngIf="erroresForm.email"> {{ erroresForm.email }} </p>
 
         <div class="wrap-input1 validate-input">
-          <input class="input1" type="password" id="inputPassword" name="subject" placeholder="Contraseña" formControlName="password">
+          <input class="input1" type="password" id="inputPassword" placeholder="Contraseña" formControlName="password" required>
           <span class="shadow-input1"></span>
         </div>
+        <p class="alert alert-danger" *ngIf="erroresForm.password"> {{ erroresForm.password }} </p>
+
         <div class="wrap-input1 validate-input">
           <input class="input1" type="password" name="subject" placeholder="Confirmar Contraseña">
           <span class="shadow-input1"></span>
         </div>
 
         <div class="container-contact1-form-btn">
-          <button class="contact1-form-btn">
+          <button  type="submit"  class="contact1-form-btn"  [disabled]="!registroForm.valid" >
             <span>
               Quiero Registrarme
               <i class="fa fa-long-arrow-right" aria-hidden="true"></i>

@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <p class="alert alert-danger" *ngIf="mensaje">
+        El usuario o contraseña no es correcto </p>
   <img id="imgLogo" class="img-fluid" src="../../assets/img/logo.png">
 
   <br>
@@ -17,15 +19,20 @@
   <form id="formLogin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h4> Nos encanta Verte! </h4>
     <input class="name" type="email" placeholder="Email de usuario" id="inputEmail" formControlName="email" required autofocus/>
+    
     <input class="pw" type="password" id="inputPassword" placeholder="Contraseña" formControlName="password" required/>
+   
     <input [disabled]="!loginForm.valid" class="button" type="submit" value="Log in" />
+    <br>
     <a [routerLink]="['/login-form']">
       <img src="../../assets/img/signup.png"> Aun no tienes cuenta?</a>
-
+      <br>
+      <br>
+      <p class="alert alert-danger" *ngIf="erroresForm.password"> {{ erroresForm.password }} </p>
+      <p class="alert alert-danger" *ngIf="erroresForm.email"> {{ erroresForm.email }} </p>
   </form>
 
-  <p class="alert alert-danger" *ngIf="mensaje">
-    El usuario o contraseña no es correcto </p>
+ 
 
 
 

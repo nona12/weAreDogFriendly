@@ -15,8 +15,36 @@ export class LoginComponent implements OnInit {
     return this.autService.isAuthenticated();
   }
 
+  erroresForm = {
+    'email': '',
+    'password': ''
+  }
+  mensajesValidacion = {
+    'email': {
+      'required': 'Email obligatorio',
+      'email': 'Introduzca una dirección email correcta'
+    },
+    'password': {
+      'required': 'Contraseña obligatoria',
+      'pattern': 'La contraseña debe tener al menos una letra un número ',
+      'minlength': 'y más de 6 caracteres'
+    }
+  }
 
-
+  onValueChanged(data?: any) {
+    if (!this.loginForm) { return; }
+    const form = this.loginForm;
+    for (const field in this.erroresForm) {
+      this.erroresForm[field] = '';
+      const control = form.get(field);
+      if (control && control.dirty && !control.valid) {
+        const messages = this.mensajesValidacion[field];
+        for (const key in control.errors) {
+          this.erroresForm[field] += messages[key] + ' ';
+        }
+      }
+    }
+  }
   loginForm: FormGroup;
   userdata: any;
   constructor(private formBuilder: FormBuilder,
@@ -39,7 +67,9 @@ export class LoginComponent implements OnInit {
       ]
       ]
     });
-
+    this.loginForm.valueChanges.subscribe(data =>
+      this.onValueChanged(data));
+    this.onValueChanged();
   }
 
   onSubmit() {

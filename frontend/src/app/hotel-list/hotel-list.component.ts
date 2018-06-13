@@ -22,7 +22,7 @@ export class HotelListComponent implements OnInit {
     private _router: Router) { }
 
   ngOnInit() {
-    this.title = 'Listado de Hoteles';
+    this.title = 'Listado de establecimientos Dogfriendly';
     this._hotelService.getHotels().subscribe(
       result => {
         console.log('OK:' + result);
