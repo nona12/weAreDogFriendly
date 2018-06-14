@@ -14,6 +14,10 @@ export class HotelAddComponent implements OnInit {
   public title: String;
   public errorMessage: String;
   public hotel: Hotel;
+  provincias: string[] = ['Álava', 'Albacete', 'Alicante', 'Almería', 'Asturias', 'Ávila', 'Badajoz', 'Barcelona', 'Burgos', 'Cáceres', 'Cádiz', 'Cantabria',
+    'Castellón', 'Ciudad Real', 'Córdoba', 'La Coruña', 'Cuenca', 'Gerona', 'Granada', 'Guadalajara', 'Guipúzcoa', 'Huelva', 'Huesca', 'IslasBaleares', 'Jaén',
+    'León', 'Lérida', 'Lugo', 'Madrid', 'Málaga', 'Murcia', 'Navarra', 'Orense', 'Palencia', 'Las Palmas', 'Pontevedra', 'La Rioja', 'Salamanca', 'Segovia',
+    'Sevilla', 'Soria', 'Tarragona', 'Santa Cruz de Tenerife', 'Teruel', 'Toledo', 'Valencia', 'Valladolid', 'Vizcaya', 'Zamora', 'Zaragoza']
 
 
   constructor(private _hotelService: HotelService,
@@ -23,9 +27,9 @@ export class HotelAddComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.hotel = new Hotel('', '', '', '', '', '','','','','','','',0);
+    this.hotel = new Hotel('', '', '', '', '', '', '', '', '', '', '', '', 0);
     console.log(this.hotel);
- 
+
   }
 
   onSubmit() {
@@ -36,13 +40,14 @@ export class HotelAddComponent implements OnInit {
           alert('Error en el servidor');
         } else {
           this.hotel = response['hotel'];
-          this._router.navigate(['/hotel, this.hotel._id']);     
-                 }
+          this._router.navigate(['/hotel, this.hotel._id']);
+        }
       },
       error => {
         this.errorMessage = <any>error;
         if (this.errorMessage != null) {
-           alert('Error en la peticion'); }
+          alert('Error en la peticion');
+        }
       }
     );
   }

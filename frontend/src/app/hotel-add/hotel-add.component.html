@@ -27,41 +27,42 @@
           <div class="form-group col-md-8">
             <label for="nombre">Nombre:</label>
             <p>
-              <input required class="form-control" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="hotel.name" placeholder="Nombre del Hotel"
+              <input required class="form-control" id="nombre" type="text" name="nombre" #nombre="ngModel" [(ngModel)]="hotel.name" placeholder="Nombre del Local"
               />
             </p>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="form-group col-md-6">
+          <div class="form-group col-md-5">
             <label for="direccion">Direccion:</label>
             <p>
               <input required class="form-control" id="direccion" type="text" name="direccion" #direccion="ngModel" [(ngModel)]="hotel.direccion"
-                placeholder="Dirección del Hotel" />
+                placeholder="Dirección" />
             </p>
           </div>
           <div class="form-group col-md-2">
             <label for="telefono">Telefono:</label>
             <p>
               <input required class="form-control" id="telefono" type="text" name="telefono" #telefono="ngModel" [(ngModel)]="hotel.phone"
-                placeholder="Telefono del Hotel" />
+                placeholder="Telefono" />
             </p>
           </div>
 
           <div class="form-group col-md-2">
             <label for="ciudad">Ciudad:</label>
             <p>
-              <input required class="form-control" id="ciudad" type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotel.city" placeholder="Ciudad del Hotel"
+              <input required class="form-control" id="ciudad" type="text" name="ciudad" #ciudad="ngModel" [(ngModel)]="hotel.city" placeholder="Ciudad"
               />
             </p>
           </div>
-          <div class="form-group col-md-2">
-            <label for="provincia">Provincia:</label>
-            <p>
-              <input required class="form-control" id="provincia" type="text" name="provincia" #provincia="ngModel" [(ngModel)]="hotel.province"
-                placeholder="Provincia" />
-            </p>
+          <div class="form-group col-md-3">
+            <label for="provincia"> Provincia:</label>
+            <select class="form-control" id="provincia" [(ngModel)]="hotel.province" name="provincia">
+              <option value="provincia">Selecciona Provincia</option>
+              <option *ngFor="let provincia of provincias" [value]="provincia">{{provincia}} </option>
+            </select>
+
           </div>
         </div>
 
@@ -69,7 +70,7 @@
           <div class="form-group col-md-4">
             <label for="web">Web:</label>
             <p>
-              <input required class="form-control" id="web" type="text" name="web" #web="ngModel" [(ngModel)]="hotel.web" placeholder="Web del Hotel"
+              <input required class="form-control" id="web" type="text" name="web" #web="ngModel" [(ngModel)]="hotel.web" placeholder="Web"
               />
             </p>
           </div>

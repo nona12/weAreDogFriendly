@@ -24,6 +24,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { HotelService } from './services/hotel.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ import { HotelService } from './services/hotel.service';
     NavbarComponent,
     FooterComponent,
     PerfilComponent,
+
 
   ],
   imports: [

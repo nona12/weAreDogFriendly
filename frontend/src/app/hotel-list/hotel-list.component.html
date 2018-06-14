@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Login Form</title>
+  <title>Listado de Locales</title>
 
 </head>
 
@@ -13,46 +13,413 @@
   <h2 class="text-center">{{title}}</h2>
   <br>
   <div class="container">
+    <!--Filtro entre distinto locales-->
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="hotels" [(ngModel)]="showHotels" id="hotels">
+      <label class="form-check-label" for="hotels">
+        Hoteles
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="bares" [(ngModel)]="showBars" id="bares">
+      <label class="form-check-label" for="bares">
+        Bares
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="others" [(ngModel)]="showOthers" id="others">
+      <label class="form-check-label" for="others">
+        Otros locales
+      </label>
+    </div>
+    <!--Fin Filtro entre distinto locales-->
+    <!--Filtro provincias-->
+    <div class="form-group col-md-3">
+      <label for="provincia"> Filtrar por Provincia:</label>
+      <select class="form-control" id="provincia" [(ngModel)]="provinciaFiltro" name="provincia">
+          <option value="provincia">Selecciona Provincia</option>
+          <option *ngFor="let provincia of provincias" [value]="provincia">{{provincia}} </option>
+        </select>
+      <!--Fin Filtro provincias-->
+      
+    </div>
 
-    <div *ngFor="let hotel of hotels;">
-      <div class="card listCards">
-        <div class="row">
-          <div class="col-sm-5">
-            <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
-              alt="Hotel image cap">
+    <!--No hay ningun filtro-->
+    <div *ngIf="!showHotels && !showBars && !showOthers && !provinciaFiltro">
+      <div *ngFor="let hotel of hotels;">
+        <div class="card listCards">
+          <div class="row">
+            <div class="col-sm-5">
+              <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                alt="Hotel image cap">
+            </div>
+
+            <div class="col-sm-7">
+              <div class="card-title title">
+                <h4>{{hotel.name}}</h4>
+              </div>
+              <img src="../../assets/img/mapa.png"> Ver mapa
+              <hr>
+              <p>{{hotel.description}}</p>
+              <hr>
+              <div id="precioButton">
+
+                <table>
+                  <tr>
+                    <td>
+                      pers/noche desde:
+                      <h5>{{hotel.price}}€</h5>
+                    </td>
+                    <td>
+                      <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+
+              <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+              <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <!--Solo seleccionada la provincia-->
+    <div *ngIf="!showHotels && !showBars && !showOthers">
+        <div *ngFor="let hotel of hotels;">
+        <div *ngIf="provinciaFiltro===hotel.province">
+          <div class="card listCards">
+            <div class="row">
+              <div class="col-sm-5">
+                <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                  alt="Hotel image cap">
+              </div>
+  
+              <div class="col-sm-7">
+                <div class="card-title title">
+                  <h4>{{hotel.name}}</h4>
+                </div>
+                <img src="../../assets/img/mapa.png"> Ver mapa
+                <hr>
+                <p>{{hotel.description}}</p>
+                <hr>
+                <div id="precioButton">
+  
+                  <table>
+                    <tr>
+                      <td>
+                        pers/noche desde:
+                        <h5>{{hotel.price}}€</h5>
+                      </td>
+                      <td>
+                        <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+  
+  
+                <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+  
+              </div>
+            </div>
+          </div>
+  
+  
+        </div>
+      </div>
+</div>
+
+
+<!--solo marcado el hotel-->
+    <div *ngIf="showHotels  && !provinciaFiltro">
+      <div *ngFor="let hotel of hotels;">
+        <div *ngIf="hotel.type==='Hotel'">
+          <div class="card listCards">
+            <div class="row">
+              <div class="col-sm-5">
+                <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                  alt="Hotel image cap">
+              </div>
+
+              <div class="col-sm-7">
+                <div class="card-title title">
+                  <h4>{{hotel.name}}</h4>
+                </div>
+                <img src="../../assets/img/mapa.png"> Ver mapa
+                <hr>
+                <p>{{hotel.description}}</p>
+                <hr>
+                <div id="precioButton">
+
+                  <table>
+                    <tr>
+                      <td>
+                        pers/noche desde:
+                        <h5>{{hotel.price}}€</h5>
+                      </td>
+                      <td>
+                        <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+
+                <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+
+              </div>
+            </div>
           </div>
 
-          <div class="col-sm-7">
-            <div class="card-title title">
-              <h4>{{hotel.name}}</h4>
-            </div>
-            <img src="../../assets/img/mapa.png"> Ver mapa
-            <hr>
-            <p>{{hotel.description}}</p>
-            <hr>
-            <div id="precioButton">
 
-              <table>
-                <tr>
-                  <td>
-                    pers/noche desde:
-                    <h5>{{hotel.price}}€</h5>
-                  </td>
-                  <td>
-                    <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
-                  </td>
-                </tr>
-              </table>
-            </div>
-
-
-            <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
-            <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
-
-          </div>
         </div>
       </div>
     </div>
+
+    <!--Solo marcado el bar-->
+    <div *ngIf="showBars && !provinciaFiltro">
+      <div *ngFor="let hotel of hotels;">
+        <div *ngIf="hotel.type==='Bar'">
+          <div class="card listCards">
+            <div class="row">
+              <div class="col-sm-5">
+                <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                  alt="Hotel image cap">
+              </div>
+
+              <div class="col-sm-7">
+                <div class="card-title title">
+                  <h4>{{hotel.name}}</h4>
+                </div>
+                <img src="../../assets/img/mapa.png"> Ver mapa
+                <hr>
+                <p>{{hotel.description}}</p>
+                <hr>
+                <div id="precioButton">
+
+                  <table>
+                    <tr>
+                      <td>
+                        pers/noche desde:
+                        <h5>{{hotel.price}}€</h5>
+                      </td>
+                      <td>
+                        <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+
+                <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+<!--Solo marcado otros-->
+    <div *ngIf="showOthers && !provinciaFiltro">
+      <div *ngFor="let hotel of hotels;">
+        <div *ngIf="hotel.type==='Otros'">
+          <div class="card listCards">
+            <div class="row">
+              <div class="col-sm-5">
+                <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                  alt="Hotel image cap">
+              </div>
+
+              <div class="col-sm-7">
+                <div class="card-title title">
+                  <h4>{{hotel.name}}</h4>
+                </div>
+                <img src="../../assets/img/mapa.png"> Ver mapa
+                <hr>
+                <p>{{hotel.description}}</p>
+                <hr>
+                <div id="precioButton">
+
+                  <table>
+                    <tr>
+                      <td>
+                        pers/noche desde:
+                        <h5>{{hotel.price}}€</h5>
+                      </td>
+                      <td>
+                        <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+
+                <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!--Marcado el hotel y la provincia-->
+    <div *ngIf="showHotels">
+        <div *ngFor="let hotel of hotels;">
+          <div *ngIf="hotel.type==='Hotel' && hotel.provinde===provinciaFiltro">
+            <div class="card listCards">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                    alt="Hotel image cap">
+                </div>
+  
+                <div class="col-sm-7">
+                  <div class="card-title title">
+                    <h4>{{hotel.name}}</h4>
+                  </div>
+                  <img src="../../assets/img/mapa.png"> Ver mapa
+                  <hr>
+                  <p>{{hotel.description}}</p>
+                  <hr>
+                  <div id="precioButton">
+  
+                    <table>
+                      <tr>
+                        <td>
+                          pers/noche desde:
+                          <h5>{{hotel.price}}€</h5>
+                        </td>
+                        <td>
+                          <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+  
+  
+                  <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                  <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+  
+                </div>
+              </div>
+            </div>
+  
+  
+          </div>
+        </div>
+      </div>
+  
+
+      <!--marcado el bar y la provincia-->
+      <div *ngIf="showBars">
+        <div *ngFor="let hotel of hotels;">
+          <div *ngIf="hotel.type==='Bar' && hotel.provinde===provinciaFiltro">
+            <div class="card listCards">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                    alt="Hotel image cap">
+                </div>
+  
+                <div class="col-sm-7">
+                  <div class="card-title title">
+                    <h4>{{hotel.name}}</h4>
+                  </div>
+                  <img src="../../assets/img/mapa.png"> Ver mapa
+                  <hr>
+                  <p>{{hotel.description}}</p>
+                  <hr>
+                  <div id="precioButton">
+  
+                    <table>
+                      <tr>
+                        <td>
+                          pers/noche desde:
+                          <h5>{{hotel.price}}€</h5>
+                        </td>
+                        <td>
+                          <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+  
+  
+                  <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                  <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+  
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+  
+
+      <!--Marcado otros y la provincia-->
+  
+      <div *ngIf="showOthers">
+        <div *ngFor="let hotel of hotels;">
+          <div *ngIf="hotel.type==='Otros' && hotel.provinde===provinciaFiltro">
+            <div class="card listCards">
+              <div class="row">
+                <div class="col-sm-5">
+                  <img class="img-fluid prueba2" src="http://pix10.agoda.net/hotelImages/115/1157073/1157073_16062412150044053329.jpg?s=1024x768"
+                    alt="Hotel image cap">
+                </div>
+  
+                <div class="col-sm-7">
+                  <div class="card-title title">
+                    <h4>{{hotel.name}}</h4>
+                  </div>
+                  <img src="../../assets/img/mapa.png"> Ver mapa
+                  <hr>
+                  <p>{{hotel.description}}</p>
+                  <hr>
+                  <div id="precioButton">
+  
+                    <table>
+                      <tr>
+                        <td>
+                          pers/noche desde:
+                          <h5>{{hotel.price}}€</h5>
+                        </td>
+                        <td>
+                          <div class="btn " id="buttonVerPrecio" [routerLink]="['/hotel',hotel._id]">Ver</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+  
+  
+                  <img src="../../assets/img/edit.png" class="buttonsUser" [routerLink]="['/edit-hotel',hotel._id]">
+                  <img src="../../assets/img/delete.png" (click)="deleteHotel(hotel._id)" class="btn buttonsUser ">
+  
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+
   </div>
 </body>
 
