@@ -279,9 +279,9 @@
 
 
     <!--Marcado el hotel y la provincia-->
-    <div *ngIf="showHotels">
+    <div *ngIf="showHotels && provinciaFiltro">
         <div *ngFor="let hotel of hotels;">
-          <div *ngIf="hotel.type==='Hotel' && hotel.provinde===provinciaFiltro">
+          <div *ngIf="hotel.type==='Hotel' && hotel.province===provinciaFiltro">
             <div class="card listCards">
               <div class="row">
                 <div class="col-sm-5">
@@ -327,9 +327,9 @@
   
 
       <!--marcado el bar y la provincia-->
-      <div *ngIf="showBars">
+      <div *ngIf="showBars && provinciaFiltro">
         <div *ngFor="let hotel of hotels;">
-          <div *ngIf="hotel.type==='Bar' && hotel.provinde===provinciaFiltro">
+          <div *ngIf="hotel.type==='Bar' && hotel.province===provinciaFiltro">
             <div class="card listCards">
               <div class="row">
                 <div class="col-sm-5">
@@ -375,9 +375,9 @@
 
       <!--Marcado otros y la provincia-->
   
-      <div *ngIf="showOthers">
+      <div *ngIf="showOthers && provinciaFiltro">
         <div *ngFor="let hotel of hotels;">
-          <div *ngIf="hotel.type==='Otros' && hotel.provinde===provinciaFiltro">
+          <div *ngIf="hotel.type==='Otros' && hotel.province===provinciaFiltro">
             <div class="card listCards">
               <div class="row">
                 <div class="col-sm-5">
